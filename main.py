@@ -195,10 +195,11 @@ df_stocks_only['HeatmapLabel'] = df_stocks_only.apply(
 # ==========================================
 # 画面構成：上部 サマリー
 # ==========================================
-col_sum1, col_sum2, col_sum3 = st.columns(3)
+col_sum1, col_sum2, col_sum3, col_sum4 = st.columns(4)
 col_sum1.metric("総資産額（ドル換算）", f"${total_portfolio_value:,.2f}")
 col_sum2.metric("うち 保有現金合計", f"${total_cash_usd_value:,.2f}")
 col_sum3.metric("為替レート (USD/JPY)", f"¥{current_fx_rate:,.2f}")
+col_sum4.metric("日本円換算", f"¥{(total_portfolio_value * current_fx_rate):,.2f}")
 st.write("---")
 
 # ==========================================
